@@ -2,8 +2,7 @@
   "name": "alt-modal-service",
   "version": "0.0.1",
   "main": "dist/alt-modal-service.min.js",
-  "scripts":
-  {
+  "scripts": {
     "test": "gulp coverage"
   },
   "dependencies": {},
@@ -25,15 +24,13 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-safari-launcher": "^0.1.1"
   },
-  "repository":
-  {
+  "repository": {
     "type": "git",
     "url": "https://github.com/dsn-nimbus/alt-modal-service.git"
   },
   "author": "dsn-nimbus <ericdantas0@gmail.com>",
   "license": "MIT",
-  "bugs":
-  {
+  "bugs": {
     "url": "https://github.com/dsn-nimbus/alt-modal-service/issues"
   },
   "homepage": "https://github.com/dsn-nimbus/alt-modal-service"
