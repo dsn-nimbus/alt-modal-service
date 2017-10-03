@@ -9,6 +9,8 @@
         }
 
         $(id).modal(opts || 'show');
+        $(id).data('bs.modal').options.backdrop = 'static';
+        $(id).data('bs.modal').options.keyboard = false;
       };
 
       this.close = function(id, opts) {

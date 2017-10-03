@@ -6,25 +6,14 @@ var coveralls = require('gulp-coveralls');
 var cssmin = require('gulp-cssmin');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
-var karma = require('karma').server;
+var Karma = require('karma').Server;
 
 var _coverage = 'coverage/**/lcov.info';
 var _scripts = 'src/**/*.js';
-var _styles = 'src/**/*.css';
 var _script = 'alt-modal-service.js';
-var _style = 'alt-modal-service.css';
 var _dist = 'dist';
 
-gulp.task('build-css', function () {
-  return gulp.src(_styles)
-    .pipe(concat(_style.toLowerCase()))
-    .pipe(gulp.dest(_dist))
-    .pipe(cssmin())
-    .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(_dist));
-})
-
-gulp.task('build', ['unit_test', 'build-css'], function () {
+gulp.task('build', ['unit_test'], function () {
   return gulp.src(_scripts)
     .pipe(concat(_script.toLowerCase()))
     .pipe(gulp.dest(_dist))
@@ -37,14 +26,12 @@ gulp.task('unit_test', function (done) {
   var _opts = {
     configFile: __dirname + '/karma.conf.js',
     singleRun: true,
-    browsers: ['PhantomJS']
+    browsers: ['Chrome']
   };
 
-  karma.start(_opts, done);
+  return new Karma(_opts, done).start();
 })
 
 gulp.task('coverage', ['unit_test'], function () {
-  gulp
-    .src(_coverage)
-    .pipe(coveralls());
+  return gulp.src(_coverage).pipe(coveralls());
 })

@@ -62,6 +62,11 @@ describe('Service: AltModalService', function() {
       var _id = '#abc';
 
       spyOn($.fn, 'modal').and.callThrough();
+      spyOn($.fn, 'data').and.returnValue({
+        options: {
+          backdrop: 'a'
+        }
+      })
 
       _AltModalService.open(_id);
 
@@ -73,6 +78,11 @@ describe('Service: AltModalService', function() {
       var _opts = {backdrop: 'static', keyboard: true};
 
       spyOn($.fn, 'modal').and.callThrough();
+      spyOn($.fn, 'data').and.returnValue({
+        options: {
+          backdrop: 'a'
+        }
+      })
 
       _AltModalService.open(_id, _opts);
 
